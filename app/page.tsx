@@ -102,6 +102,19 @@ price="Любая сумма"
 description="Подарочный сертификат на расслабляющий массаж."
 image="/images/massage.jpg"
 />
+<GiftCard
+title="Эстетичные или оригинальные кружки (2 шт.) ☕🤍"
+price=""
+description="Эстетичная или оригинальная пара кружек для уютных чаепитий и красивых моментов дома."
+image="/images/cup.jpg"
+/>
+<GiftCard
+title="Серьги Swarovski Constella ✨"
+price=""
+description="Изящные серьги Swarovski Constella с сияющими кристаллами — элегантное украшение, которое подойдет как на каждый день, так и для особых случаев."
+image="/images/swarovski-earrings.jpg"
+link="https://www.swarovski.com/ko-KR/p-M5692262/Constella-%EC%8A%A4%ED%84%B0%EB%93%9C-%EC%9D%B4%EC%96%B4%EB%A7%81-%EB%9D%BC%EC%9A%B4%EB%93%9C-%EC%BB%B7-%ED%99%94%EC%9D%B4%ED%8A%B8-%EB%A1%9C%EB%93%90-%ED%94%8C%EB%9E%98%ED%8C%85?variantID=5692262"
+/>
 <section style={{ textAlign: "center", marginTop: "50px", padding: "20px" }}>
   <h2>💝 Спасибо!</h2>
   <p>
