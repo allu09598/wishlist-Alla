@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./GiftCard.module.css";
 
@@ -20,6 +20,27 @@ export default function GiftCard({
   link,
 }: GiftCardProps) {
   const [reserved, setReserved] = useState(false);
+
+  const storageKey = `reserved-${title}`;
+
+  useEffect(() => {
+    const savedReservation = localStorage.getItem(storageKey);
+
+    if (savedReservation === "true") {
+      setReserved(true);
+    }
+  }, [storageKey]);
+
+  const handleReserve = () => {
+    const ok = confirm(
+      "Вы уверены, что хотите забронировать этот подарок?\n\nПосле этого другие гости увидят, что он уже выбран."
+    );
+
+    if (ok) {
+      setReserved(true);
+      localStorage.setItem(storageKey, "true");
+    }
+  };
 
   return (
     <div className={styles.card}>
@@ -84,15 +105,7 @@ export default function GiftCard({
         }}
       >
         <button
-          onClick={() => {
-  const ok = confirm(
-    "Вы уверены, что хотите забронировать этот подарок?\n\nПосле этого другие гости увидят, что он уже выбран."
-  );
-
-  if (ok) {
-    setReserved(true);
-  }
-}}
+          onClick={handleReserve}
           disabled={reserved}
           style={{
             flex: 1,
@@ -101,15 +114,13 @@ export default function GiftCard({
             border: "none",
             padding: "12px",
             borderRadius: "14px",
-            cursor: "pointer",
+            cursor: reserved ? "default" : "pointer",
             fontSize: "16px",
             fontWeight: "bold",
           }}
         >
           {reserved ? "💜 Забронировано" : "🎁 Я подарю"}
         </button>
-
-        
       </div>
     </div>
   );
